@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt-Hub · Übersicht</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --purple: #7c3aed;
+  --purple-light: #ede9fe;
+  --green: #16a34a;
+  --green-light: #dcfce7;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --red: #dc2626;
+  --red-light: #fee2e2;
+  --gray-light: #f1f5f9;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--purple);
+  letter-spacing: -0.02em;
+}
+
+.header-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-left: 1px solid var(--border);
+  padding-left: 12px;
+}
+
+.header-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.page-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+.stat {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.stat-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--purple);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Filter */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 5px 14px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  transition: all 0.15s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+/* Table */
+.table-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+thead {
+  background: var(--gray-light);
+  border-bottom: 1px solid var(--border);
+}
+
+thead th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #fafbfc; }
+
+td {
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+/* Projekt-Name Spalte */
+.proj-name {
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.proj-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.proj-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-width: 220px;
+  line-height: 1.4;
+}
+
+/* Status-Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-active    { background: var(--green-light);  color: #166534; }
+.badge-planned   { background: var(--amber-light);  color: #92400e; }
+.badge-paused    { background: var(--gray-light);   color: var(--muted); }
+.badge-live      { background: var(--blue-light);   color: #1e40af; }
+.badge-wip       { background: var(--purple-light); color: var(--purple); }
+
+/* Links */
+.link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link-item:hover { text-decoration: underline; }
+.link-item.missing { color: var(--muted); cursor: default; }
+.link-item.missing:hover { text-decoration: none; }
+
+.link-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Obsidian tag */
+.obs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--purple-light);
+  color: var(--purple);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.no-entry {
+  color: #cbd5e1;
+  font-size: 0.75rem;
+}
+
+/* Updated */
+.updated-line {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+/* Category header rows */
+.cat-row td {
+  background: var(--gray-light);
+  padding: 7px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="header-logo">⚡ Projekt-Hub</div>
+    <div class="header-sub">Alle Projekte auf einen Blick</div>
+  </div>
+  <div class="header-meta">🤖 Claude aktualisiert diese Seite automatisch · Stand: 23. Juni 2026</div>
+</header>
+
+<div class="container">
+
+  <h1 class="page-title">Projektübersicht</h1>
+  <p class="page-sub">Alle aktiven und geplanten Projekte — mit Links zu Webseite, Roadmap, GitHub und Obsidian.</p>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Projekte gesamt</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Live / Aktiv</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">In Aufbau</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Geplant</div>
+    </div>
+  </div>
+
+  <!-- Tabelle -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Projekt</th>
+          <th>Status</th>
+          <th>Beschreibung</th>
+          <th>Webseite</th>
+          <th>Roadmap</th>
+          <th>GitHub</th>
+          <th>Obsidian</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ── KERN-PLATTFORM ── -->
+        <tr class="cat-row"><td colspan="7">Kern-Plattform</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#ede9fe;">🏗️</div>
+              Appiverse
+            </div>
+          </td>
+          <td><span class="badge badge-active">● Aktiv</span></td>
+          <td><div class="proj-desc">B2B KI-SaaS-Plattform (Done-for-you) für KMU. Bäcker-Pilot. Backend auf Server S1.</div></td>
+          <td>
+            <div class="link-group">
+              <a class="link-item" href="https://app.appiverse.de" target="_blank">🔗 app.appiverse.de</a>
+              <a class="link-item" href="https://appiverse-website.pages.dev" target="_blank">🌐 Marketing-Seite</a>
+            </div>
+          </td>
+          <td><span class="no-entry">—</span></td>
+          <td>
+            <div class="link-group">
+              <a class="link-item" href="https://github.com/oechteli/appiverse-core" target="_blank">📦 appiverse-core</a>
+              <a class="link-item" href="https://github.com/oechteli/appiverse-website" target="_blank">📦 appiverse-website</a>
+            </div>
+          </td>
+          <td><span class="obs-tag">📓 02 Projekte/Appiverse</span></td>
+        </tr>
+
+        <!-- ── B2C APPS ── -->
+        <tr class="cat-row"><td colspan="7">B2C KI-Apps</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#ede9fe;">⚡</div>
+              simplymindo
+            </div>
+          </td>
+          <td><span class="badge badge-wip">🔨 Phase 1</span></td>
+          <td><div class="proj-desc">B2C KI-Mini-App-Marktplatz. 27+ Apps. 3 Pläne ab 1,99 €. Erste App: Aufgaben-Planer.</div></td>
+          <td>
+            <div class="link-group">
+              <a class="link-item missing">⏳ simplymindo-portal.pages.dev</a>
+              <span style="font-size:0.72rem;color:#94a3b8;">(Deploy ausstehend)</span>
+            </div>
+          </td>
+          <td><a class="link-item" href="https://simplymindo-roadmap.pages.dev" target="_blank">📋 simplymindo-roadmap</a></td>
+          <td>
+            <div class="link-group">
+              <a class="link-item" href="https://github.com/oechteli/simplymindo-portal" target="_blank">📦 simplymindo-portal</a>
+              <a class="link-item" href="https://github.com/oechteli/mindo-factory" target="_blank">📦 mindo-factory</a>
+            </div>
+          </td>
+          <td><span class="obs-tag">📓 02 Projekte/simplymindo</span></td>
+        </tr>
+
+        <!-- ── YOUTUBE / FUNNEL ── -->
+        <tr class="cat-row"><td colspan="7">YouTube & Funnel</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#dcfce7;">📺</div>
+              Chaniverse
+            </div>
+          </td>
+          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-desc">YouTube-Kanal-Fabrik SaaS. Komplette Pipeline: Script→Image→Voice→Upload. Läuft auf Server S2.</div></td>
+          <td><a class="link-item" href="https://chaniverse.de" target="_blank">🔗 chaniverse.de</a></td>
+          <td><a class="link-item" href="https://chaniverse-roadmap.pages.dev" target="_blank">📋 chaniverse-roadmap</a></td>
+          <td><a class="link-item" href="https://github.com/oechteli/chaniverse-backup" target="_blank">📦 chaniverse-backup</a></td>
+          <td><span class="no-entry">—</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#fef3c7;">💘</div>
+              Klartext Liebe
+            </div>
+          </td>
+          <td><span class="badge badge-wip">🔨 Aufbau</span></td>
+          <td><div class="proj-desc">Dating/Singlecoaching-Plattform. Next.js-MVP. YouTube-Funnel @klartextliebe.</div></td>
+          <td><span class="no-entry">—</span></td>
+          <td><a class="link-item" href="https://klartext-roadmap.pages.dev" target="_blank">📋 klartext-roadmap</a></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="obs-tag">📓 02 Projekte/Klartext Liebe</span></td>
+        </tr>
+
+        <!-- ── BILDUNG ── -->
+        <tr class="cat-row"><td colspan="7">Bildung & Kurse</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#dbeafe;">🎓</div>
+              Acamindo
+            </div>
+          </td>
+          <td><span class="badge badge-wip">🔨 Aufbau</span></td>
+          <td><div class="proj-desc">Dachmarke für Bildung. acamindo.de als Hauptseite. Sprachschule angedockt. LMS/Community geplant.</div></td>
+          <td>
+            <div class="link-group">
+              <a class="link-item missing">⏳ acamindo.de (Hostinger, gestoppt)</a>
+            </div>
+          </td>
+          <td><span class="no-entry">—</span></td>
+          <td><a class="link-item" href="https://github.com/oechteli/acamindo-core" target="_blank">📦 acamindo-core</a></td>
+          <td><span class="obs-tag">📓 02 Projekte/Acamindo</span></td>
+        </tr>
+
+        <!-- ── B2B LEADS ── -->
+        <tr class="cat-row"><td colspan="7">B2B / Leads</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#fef3c7;">🏠</div>
+              Dachkompass
+            </div>
+          </td>
+          <td><span class="badge badge-planned">📋 Geplant</span></td>
+          <td><div class="proj-desc">B2B-SaaS: Hagelschaden-Leads für Dachdecker und Solar-Firmen.</div></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="obs-tag">📓 02 Projekte/Dachkompass</span></td>
+        </tr>
+
+        <!-- ── CONTENT / AFFILIATE ── -->
+        <tr class="cat-row"><td colspan="7">Content & Affiliate</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#dcfce7;">🎁</div>
+              Gewinnspiel-Radar
+            </div>
+          </td>
+          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-desc">Halbautomatische Seite mit deutschen Gewinnspielen + Lösungswörtern. Claude aktualisiert wöchentlich.</div></td>
+          <td><span class="no-entry">— (lokal)</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#dcfce7;">💰</div>
+              Affiliate-Radar
+            </div>
+          </td>
+          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-desc">DACH-Affiliate-Marktanalyse-Dashboard. Provision, Cookie-Laufzeit, Anmelde-Links.</div></td>
+          <td><span class="no-entry">— (Cloudflare)</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+        </tr>
+
+        <!-- ── INTERN / TOOLS ── -->
+        <tr class="cat-row"><td colspan="7">Intern & Tools</td></tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#ede9fe;">🏠</div>
+              Familien-Dashboard
+            </div>
+          </td>
+          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-desc">Geschützter Familien- und Projektplaner. Cloudflare Access (Familien-Zugang).</div></td>
+          <td><a class="link-item" href="https://familien-dashboard.pages.dev" target="_blank">🔗 familien-dashboard</a></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="proj-name">
+              <div class="proj-icon" style="background:#ede9fe;">🎬</div>
+              Media Engine
+            </div>
+          </td>
+          <td><span class="badge badge-wip">🔨 Aufbau</span></td>
+          <td><div class="proj-desc">Acamindo-eigene Video-Fabrik. Skript→Szenen→Bilder→Voiceover→MP4. Cloudflare Worker.</div></td>
+          <td><a class="link-item" href="https://acamindo-media-engine.pages.dev" target="_blank">🔗 media-engine</a></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <p class="updated-line">🤖 Zuletzt aktualisiert: 23. Juni 2026 · Claude aktualisiert diese Seite automatisch</p>
+
+</div>
+
+</body>
+</html>
