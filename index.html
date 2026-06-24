@@ -73,9 +73,8 @@ header {
 }
 
 .container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 32px 24px;
+  max-width: 100%;
+  padding: 32px 32px;
 }
 
 .page-title {
@@ -291,6 +290,12 @@ td {
   white-space: nowrap;
 }
 
+.logo-cell { text-align: center; }
+.proj-logo { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; display: block; margin: 0 auto 4px; }
+.logo-dl { font-size: 0.7rem; color: var(--blue); text-decoration: none; display: block; text-align: center; }
+.logo-dl:hover { text-decoration: underline; }
+.logo-ph { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 4px; }
+
 .obs-link {
   display: inline-flex;
   align-items: center;
@@ -385,8 +390,8 @@ details.todo-box ul {
     <table>
       <thead>
         <tr>
+          <th>Logo</th>
           <th>Projekt</th>
-          <th>Status</th>
           <th>Beschreibung</th>
           <th>Webseite</th>
           <th>Roadmap</th>
@@ -401,15 +406,13 @@ details.todo-box ul {
 
         <!-- ── KERN-PLATTFORM ── -->
         <tr class="cat-row"><td colspan="10">Kern-Plattform</td></tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#ede9fe;">🏗️</div>
-              Appymindo
-            </div>
+          <td class="logo-cell">
+            <img src="logos/appymindo.png" alt="Appymindo" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#ede9fe;">🏗️</div>
+            <a class="logo-dl" href="logos/appymindo.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-active">● Aktiv</span></td>
+          <td><div class="proj-name">Appymindo</div></td>
           <td><div class="proj-desc">B2B KI-SaaS-Plattform (Done-for-you) für KMU & Sprachschulen. Bäcker-Pilot. Backend auf Server S1.</div></td>
           <td>
             <div class="link-group">
@@ -421,292 +424,184 @@ details.todo-box ul {
           <td><a class="link-item" href="https://www.youtube.com/@cogvo" target="_blank">▶ @cogvo</a></td>
           <td><a class="link-item" href="https://github.com/oechteli/appiverse-core" target="_blank">📦 github.com/oechteli/appiverse-core</a></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FAppiverse">📓 02 Projekte/Appiverse</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 3 Todos</summary>
-              <ul>
-                <li>Rebranding Appiverse → Appymindo</li>
-                <li>Domain appymindo.de anbinden</li>
-                <li>Sprachschul-Features ergänzen</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>Rebranding Appiverse → Appymindo</li><li>Domain appymindo.de anbinden</li><li>Sprachschul-Features ergänzen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── B2C APPS ── -->
         <tr class="cat-row"><td colspan="10">B2C KI-Apps</td></tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#ede9fe;">⚡</div>
-              Simplymindo
-            </div>
+          <td class="logo-cell">
+            <img src="logos/simplymindo.png" alt="Simplymindo" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#ede9fe;">⚡</div>
+            <a class="logo-dl" href="logos/simplymindo.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-wip">🔨 Phase 1</span></td>
+          <td><div class="proj-name">Simplymindo</div></td>
           <td><div class="proj-desc">KI-Mini-App-Marktplatz für Privatpersonen. 27+ Apps. 3 Pläne ab 1,99 €. Erste App: Aufgaben-Planer.</div></td>
-          <td><a class="link-item" href="https://www.simplymindo.de" target="_blank">🔗 www.simplymindo.de</a></td>
-          <td><a class="link-item" href="https://simplymindo-roadmap.pages.dev" target="_blank">📋 simplymindo-roadmap.pages.dev</a></td>
-          <td><span class="no-entry">—</span></td>
           <td>
             <div class="link-group">
-              <a class="link-item" href="https://github.com/oechteli/simplymindo-portal" target="_blank">📦 github.com/oechteli/simplymindo-portal</a>
-              <a class="link-item" href="https://github.com/oechteli/mindo-factory" target="_blank">📦 github.com/oechteli/mindo-factory</a>
+              <a class="link-item" href="https://www.simplymindo.de" target="_blank">🔗 www.simplymindo.de</a>
+              <a class="link-item" href="https://app.simplymindo.de" target="_blank">⚙️ app.simplymindo.de (Backend)</a>
             </div>
           </td>
+          <td><a class="link-item" href="https://simplymindo-roadmap.pages.dev" target="_blank">📋 simplymindo-roadmap.pages.dev</a></td>
+          <td><span class="no-entry">—</span></td>
+          <td><div class="link-group"><a class="link-item" href="https://github.com/oechteli/simplymindo-portal" target="_blank">📦 github.com/oechteli/simplymindo-portal</a><a class="link-item" href="https://github.com/oechteli/mindo-factory" target="_blank">📦 github.com/oechteli/mindo-factory</a></div></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2Fsimplymindo">📓 02 Projekte/Simplymindo</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 3 Todos</summary>
-              <ul>
-                <li>Portal auf simplymindo.de deployen</li>
-                <li>Stripe-Abo einrichten</li>
-                <li>Erste App live schalten</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>Portal auf simplymindo.de deployen</li><li>Stripe-Abo einrichten</li><li>Erste App live schalten</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── YOUTUBE / FUNNEL ── -->
         <tr class="cat-row"><td colspan="10">YouTube & Funnel</td></tr>
-
         <tr>
+          <td class="logo-cell">
+            <img src="logos/chanymindo.png" alt="Chanymindo" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#dcfce7;">📺</div>
+            <a class="logo-dl" href="logos/chanymindo.png" download>⬇ Download</a>
+          </td>
+          <td><div class="proj-name">Chanymindo</div></td>
+          <td><div class="proj-desc">YouTube-Kanal-Fabrik SaaS. Komplette Pipeline: Script→Image→Voice→Upload. Läuft auf Server S2.</div></td>
           <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#dcfce7;">📺</div>
-              Chanymindo
+            <div class="link-group">
+              <a class="link-item" href="https://www.chanymindo.de" target="_blank">🔗 www.chanymindo.de</a>
+              <a class="link-item" href="https://app.chanymindo.de" target="_blank">⚙️ app.chanymindo.de (Backend)</a>
             </div>
           </td>
-          <td><span class="badge badge-live">✅ Live</span></td>
-          <td><div class="proj-desc">YouTube-Kanal-Fabrik SaaS. Komplette Pipeline: Script→Image→Voice→Upload. Läuft auf Server S2.</div></td>
-          <td><a class="link-item" href="https://www.chanymindo.de" target="_blank">🔗 www.chanymindo.de</a></td>
           <td><a class="link-item" href="https://chanimindo-roadmap.pages.dev" target="_blank">📋 chanimindo-roadmap.pages.dev</a></td>
           <td><span class="no-entry">—</span></td>
           <td><a class="link-item" href="https://github.com/oechteli/chaniverse-backup" target="_blank">📦 github.com/oechteli/chaniverse-backup</a></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FChanymindo">📓 02 Projekte/Chanymindo</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 3 Todos</summary>
-              <ul>
-                <li>Rebranding Chaniverse → Chanymindo</li>
-                <li>Domain chanymindo.de anbinden</li>
-                <li>Kunden-Portal live stellen</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>Rebranding Chaniverse → Chanymindo</li><li>Domain chanymindo.de anbinden</li><li>Kunden-Portal live stellen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#fef3c7;">💘</div>
-              Klartext Liebe
-            </div>
+          <td class="logo-cell">
+            <img src="logos/klartext-liebe.png" alt="Klartext Liebe" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#fef3c7;">💘</div>
+            <a class="logo-dl" href="logos/klartext-liebe.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-wip">🔨 Aufbau</span></td>
+          <td><div class="proj-name">Klartext Liebe</div></td>
           <td><div class="proj-desc">Dating/Singlecoaching-Plattform. Next.js-MVP. YouTube-Funnel @klartextliebe.</div></td>
-          <td><a class="link-item" href="https://www.klartext-liebe.de" target="_blank">🔗 www.klartext-liebe.de</a></td>
-          <td><a class="link-item" href="https://klartextliebe-roadmap.pages.dev" target="_blank">📋 klartextliebe-roadmap.pages.dev</a></td>
-          <td><a class="link-item" href="https://www.youtube.com/@klartextliebe" target="_blank">▶ @klartextliebe</a></td>
           <td>
             <div class="link-group">
-              <a class="link-item" href="https://github.com/oechteli/klartextliebe" target="_blank">📦 github.com/oechteli/klartextliebe</a>
-              <a class="link-item" href="https://github.com/oechteli/klartextliebe-portal" target="_blank">📦 github.com/oechteli/klartextliebe-portal</a>
+              <a class="link-item" href="https://www.klartext-liebe.de" target="_blank">🔗 www.klartext-liebe.de</a>
+              <a class="link-item" href="https://app.klartext-liebe.de" target="_blank">⚙️ app.klartext-liebe.de (Backend)</a>
             </div>
           </td>
+          <td><a class="link-item" href="https://klartextliebe-roadmap.pages.dev" target="_blank">📋 klartextliebe-roadmap.pages.dev</a></td>
+          <td><a class="link-item" href="https://www.youtube.com/@klartextliebe" target="_blank">▶ @klartextliebe</a></td>
+          <td><div class="link-group"><a class="link-item" href="https://github.com/oechteli/klartextliebe" target="_blank">📦 github.com/oechteli/klartextliebe</a><a class="link-item" href="https://github.com/oechteli/klartextliebe-portal" target="_blank">📦 github.com/oechteli/klartextliebe-portal</a></div></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FKlartext%20Liebe">📓 02 Projekte/Klartext Liebe</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 4 Todos</summary>
-              <ul>
-                <li>Next.js-MVP fertigstellen</li>
-                <li>YouTube-Kanal aufbauen (Skripte, Videos)</li>
-                <li>Coaching-Angebot definieren</li>
-                <li>Stripe-Zahlung einrichten</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 4 Todos</summary><ul><li>Next.js-MVP fertigstellen</li><li>YouTube-Kanal aufbauen</li><li>Coaching-Angebot definieren</li><li>Stripe-Zahlung einrichten</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── BILDUNG ── -->
         <tr class="cat-row"><td colspan="10">Bildung & Kurse</td></tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#dbeafe;">🎓</div>
-              Acamindo
-            </div>
+          <td class="logo-cell">
+            <img src="logos/acamindo.png" alt="Acamindo" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#dbeafe;">🎓</div>
+            <a class="logo-dl" href="logos/acamindo.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-wip">🔨 Aufbau</span></td>
+          <td><div class="proj-name">Acamindo</div></td>
           <td><div class="proj-desc">Dachmarke für Bildung. Sprachschule angedockt. LMS/Community geplant.</div></td>
-          <td>
-            <div class="link-group">
-              <a class="link-item" href="https://www.acamindo.de" target="_blank">🔗 www.acamindo.de</a>
-              <a class="link-item" href="https://www.acamindo.com" target="_blank">🔗 www.acamindo.com</a>
-            </div>
-          </td>
+          <td><div class="link-group"><a class="link-item" href="https://www.acamindo.de" target="_blank">🔗 www.acamindo.de</a><a class="link-item" href="https://www.acamindo.com" target="_blank">🔗 www.acamindo.com</a></div></td>
           <td><a class="link-item" href="https://acamindo-roadmap.pages.dev" target="_blank">📋 acamindo-roadmap.pages.dev</a></td>
           <td><span class="no-entry">—</span></td>
           <td><a class="link-item" href="https://github.com/oechteli/acamindo-core" target="_blank">📦 github.com/oechteli/acamindo-core</a></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FAcamindo">📓 02 Projekte/Acamindo</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 4 Todos</summary>
-              <ul>
-                <li>Webseite polieren &amp; pushen</li>
-                <li>Sprachschule vollständig andocken</li>
-                <li>LMS/Kursplattform aufbauen</li>
-                <li>YouTube-Kanal starten</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 4 Todos</summary><ul><li>Webseite polieren &amp; pushen</li><li>Sprachschule vollständig andocken</li><li>LMS/Kursplattform aufbauen</li><li>YouTube-Kanal starten</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── B2B LEADS ── -->
         <tr class="cat-row"><td colspan="10">B2B / Leads</td></tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#fef3c7;">🏠</div>
-              Dachkompass
-            </div>
+          <td class="logo-cell">
+            <img src="logos/dachkompass.png" alt="Dachkompass" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#fef3c7;">🏠</div>
+            <a class="logo-dl" href="logos/dachkompass.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-planned">📋 Geplant</span></td>
+          <td><div class="proj-name">Dachkompass</div></td>
           <td><div class="proj-desc">B2B-SaaS: Hagelschaden-Leads für Dachdecker und Solar-Firmen.</div></td>
           <td><a class="link-item" href="https://www.dachkompass.de" target="_blank">🔗 www.dachkompass.de</a></td>
           <td><a class="link-item" href="https://dachkompass-roadmap.pages.dev" target="_blank">📋 dachkompass-roadmap.pages.dev</a></td>
           <td><span class="no-entry">—</span></td>
-          <td><span class="no-entry">—</span></td>
+          <td><a class="link-item" href="https://github.com/oechteli/dachkompass" target="_blank">📦 github.com/oechteli/dachkompass</a></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FDachkompass">📓 02 Projekte/Dachkompass</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 3 Todos</summary>
-              <ul>
-                <li>MVP-Landingpage bauen</li>
-                <li>Lead-Formular + CRM anbinden</li>
-                <li>Erste Dachdecker ansprechen</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>MVP-Landingpage bauen</li><li>Lead-Formular + CRM anbinden</li><li>Erste Dachdecker ansprechen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── CONTENT / AFFILIATE ── -->
         <tr class="cat-row"><td colspan="10">Content & Affiliate</td></tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#dcfce7;">🎁</div>
-              Gewinnspiel-Radar
-            </div>
+          <td class="logo-cell">
+            <img src="logos/gewinnspiel-radar.png" alt="Gewinnspiel-Radar" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#dcfce7;">🎁</div>
+            <a class="logo-dl" href="logos/gewinnspiel-radar.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-name">Gewinnspiel-Radar</div></td>
           <td><div class="proj-desc">Halbautomatische Seite mit deutschen Gewinnspielen + Lösungswörtern. Claude aktualisiert wöchentlich.</div></td>
           <td><span class="no-entry">— (lokal)</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 2 Todos</summary>
-              <ul>
-                <li>Auf Cloudflare deployen</li>
-                <li>Wöchentliche Aktualisierung automatisieren</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 2 Todos</summary><ul><li>Auf Cloudflare deployen</li><li>Wöchentliche Aktualisierung automatisieren</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#dcfce7;">💰</div>
-              Affiliate-Radar
-            </div>
+          <td class="logo-cell">
+            <img src="logos/affiliate-radar.png" alt="Affiliate-Radar" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#dcfce7;">💰</div>
+            <a class="logo-dl" href="logos/affiliate-radar.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-name">Affiliate-Radar</div></td>
           <td><div class="proj-desc">DACH-Affiliate-Marktanalyse-Dashboard. Provision, Cookie-Laufzeit, Anmelde-Links.</div></td>
           <td><span class="no-entry">— (Cloudflare)</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 2 Todos</summary>
-              <ul>
-                <li>Regelmäßig neue Programme ergänzen</li>
-                <li>GitHub-Repo anlegen</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 2 Todos</summary><ul><li>Regelmäßig neue Programme ergänzen</li><li>GitHub-Repo anlegen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── INTERN / TOOLS ── -->
         <tr class="cat-row"><td colspan="10">Intern & Tools</td></tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#ede9fe;">🏠</div>
-              Familien-Dashboard
-            </div>
+          <td class="logo-cell">
+            <img src="logos/familien-dashboard.png" alt="Familien-Dashboard" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#ede9fe;">🏠</div>
+            <a class="logo-dl" href="logos/familien-dashboard.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-live">✅ Live</span></td>
+          <td><div class="proj-name">Familien-Dashboard</div></td>
           <td><div class="proj-desc">Geschützter Familien- und Projektplaner. Cloudflare Access (Familien-Zugang).</div></td>
           <td><a class="link-item" href="https://familien-dashboard.pages.dev" target="_blank">🔗 familien-dashboard.pages.dev</a></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 3 Todos</summary>
-              <ul>
-                <li>R2-Bucket anbinden (Fotos/Dokumente)</li>
-                <li>Google-Kalender je Person einbetten</li>
-                <li>E-Mail-Zentrale aufbauen</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>R2-Bucket anbinden (Fotos/Dokumente)</li><li>Google-Kalender je Person einbetten</li><li>E-Mail-Zentrale aufbauen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
-
         <tr>
-          <td>
-            <div class="proj-name">
-              <div class="proj-icon" style="background:#ede9fe;">🎬</div>
-              Media Engine
-            </div>
+          <td class="logo-cell">
+            <img src="logos/media-engine.png" alt="Media Engine" class="proj-logo" onerror="this.style.display='none'">
+            <div class="logo-ph" style="background:#ede9fe;">🎬</div>
+            <a class="logo-dl" href="logos/media-engine.png" download>⬇ Download</a>
           </td>
-          <td><span class="badge badge-wip">🔨 Aufbau</span></td>
+          <td><div class="proj-name">Media Engine</div></td>
           <td><div class="proj-desc">Acamindo-eigene Video-Fabrik. Skript→Szenen→Bilder→Voiceover→MP4. Cloudflare Worker.</div></td>
           <td><a class="link-item" href="https://acamindo-media-engine.pages.dev" target="_blank">🔗 acamindo-media-engine.pages.dev</a></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><span class="no-entry">—</span></td>
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FACAMINDO%20Media%20Engine">📓 02 Projekte/ACAMINDO Media Engine</a></td>
-          <td>
-            <details class="todo-box">
-              <summary>▸ 3 Todos</summary>
-              <ul>
-                <li>Cloudflare Worker fertigstellen</li>
-                <li>Voiceover-Dienst anbinden</li>
-                <li>Ersten kompletten Videodurchlauf testen</li>
-              </ul>
-            </details>
-          </td>
+          <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>Cloudflare Worker fertigstellen</li><li>Voiceover-Dienst anbinden</li><li>Ersten kompletten Videodurchlauf testen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
