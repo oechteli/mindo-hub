@@ -362,6 +362,12 @@ details.todo-box ul {
   margin-top: 16px;
 }
 
+/* Sub-Rows */
+.sub-row { background: #fafbff; }
+.sub-row td { border-left: 3px solid var(--purple-light); }
+.sub-row td:first-child { border-left: none; }
+.sub-name { font-weight: 500; color: var(--muted); padding-left: 6px; }
+
 /* Category header rows */
 .cat-row td {
   background: var(--gray-light);
@@ -487,7 +493,7 @@ details.todo-box ul {
             <div class="logo-ph" style="background:#ede9fe;">⚡</div>
             <a class="logo-dl" href="logos/simplymindo.png" download>⬇ Download</a>
           </td>
-          <td><div class="proj-name">Simplymindo</div></td>
+          <td><div class="proj-name" style="cursor:pointer;" onclick="document.getElementById('sub-simplymindo').style.display=document.getElementById('sub-simplymindo').style.display==='table-row'?'none':'table-row';this.querySelector('.expand-arrow').textContent=document.getElementById('sub-simplymindo').style.display==='table-row'?'▾':'▸'"><span class="expand-arrow" style="font-size:0.7rem;color:var(--muted);margin-right:3px;">▸</span>Simplymindo</div></td>
           <td><div class="proj-desc">KI-Mini-App-Marktplatz für Privatpersonen. 27+ Apps. 3 Pläne ab 1,99 €. Erste App: Aufgaben-Planer.</div></td>
           <td>
             <div class="link-group">
@@ -502,13 +508,13 @@ details.todo-box ul {
           <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>Portal auf simplymindo.de deployen</li><li>Stripe-Abo einrichten</li><li>Erste App live schalten</li></ul></details></td>
           <td><span class="last-edit">24.06.2026 09:30</span></td>
         </tr>
-        <tr>
+        <tr id="sub-simplymindo" class="sub-row" style="display:none;">
           <td class="logo-cell">
             <img src="logos/simplymindo.png" alt="Aufgaben-Planer" class="proj-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="logo-ph" style="background:#ede9fe;">✅</div>
             <a class="logo-dl" href="logos/simplymindo.png" download>⬇ Download</a>
           </td>
-          <td><div class="proj-name">Aufgaben-Planer</div></td>
+          <td><div class="proj-name sub-name">↳ Aufgaben-Planer</div></td>
           <td><div class="proj-desc">Erste App im Simplymindo-Marktplatz. 4-Spalten-Planer: Pool, Heute, Morgen, Diese Woche.</div></td>
           <td>
             <div class="link-group">
