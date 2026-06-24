@@ -469,7 +469,7 @@ details.todo-box ul {
             <div class="logo-ph" style="background:#ede9fe;">🏗️</div>
             <a class="logo-dl" href="logos/appymindo.png" download>⬇ Download</a>
           </td>
-          <td><div class="proj-name">Appymindo</div></td>
+          <td><div class="proj-name" style="cursor:pointer;" onclick="document.querySelectorAll('.sub-appymindo').forEach(function(r){r.style.display=r.style.display==='table-row'?'none':'table-row';});this.querySelector('.expand-arrow').textContent=document.querySelector('.sub-appymindo').style.display==='table-row'?'▾':'▸'"><span class="expand-arrow" style="font-size:0.7rem;color:var(--muted);margin-right:3px;">▸</span>Appymindo</div></td>
           <td><div class="proj-desc">B2B KI-SaaS-Plattform (Done-for-you) für KMU & Sprachschulen. Bäcker-Pilot. Backend auf Server S1.</div></td>
           <td>
             <div class="link-group">
@@ -483,6 +483,62 @@ details.todo-box ul {
           <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FAppiverse">📓 02 Projekte/Appiverse</a></td>
           <td><details class="todo-box"><summary>▸ 3 Todos</summary><ul><li>Rebranding Appiverse → Appymindo</li><li>Domain appymindo.de anbinden</li><li>Sprachschul-Features ergänzen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#fef3c7;display:flex;">🔨</div></td>
+          <td><div class="proj-name sub-name">↳ Handwerker</div></td>
+          <td><div class="proj-desc">KI-Plattform für Handwerksbetriebe. Terminplanung, Angebote, Kundenverwaltung.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/handwerker" target="_blank">🔗 www.appymindo.de/handwerker</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#dbeafe;display:flex;">🗣️</div></td>
+          <td><div class="proj-name sub-name">↳ Sprachschulen</div></td>
+          <td><div class="proj-desc">KI-Plattform für Sprachschulen. Kursverwaltung, Lernfortschritt, Abrechnung.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/sprachschulen" target="_blank">🔗 www.appymindo.de/sprachschulen</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#dcfce7;display:flex;">🎵</div></td>
+          <td><div class="proj-name sub-name">↳ Musikschulen</div></td>
+          <td><div class="proj-desc">KI-Plattform für Musikschulen. Stundenpläne, Lehrer- und Schülerverwaltung.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/musikschulen" target="_blank">🔗 www.appymindo.de/musikschulen</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#fef3c7;display:flex;">📚</div></td>
+          <td><div class="proj-name sub-name">↳ Nachhilfe</div></td>
+          <td><div class="proj-desc">KI-Plattform für Nachhilfeschulen. Buchung, Lernpläne, Elternkommunikation.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/nachhilfe" target="_blank">🔗 www.appymindo.de/nachhilfe</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#fef3c7;display:flex;">🥐</div></td>
+          <td><div class="proj-name sub-name">↳ Bäckereien</div></td>
+          <td><div class="proj-desc">KI-Plattform für Bäckereien. Bestellungen, Schichtplanung, Kundenbindung.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/baeckereien" target="_blank">🔗 www.appymindo.de/baeckereien</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#dcfce7;display:flex;">🤝</div></td>
+          <td><div class="proj-name sub-name">↳ Vereine</div></td>
+          <td><div class="proj-desc">KI-Plattform für Vereine. Mitgliederverwaltung, Beiträge, Veranstaltungen.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/vereine" target="_blank">🔗 www.appymindo.de/vereine</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
+        </tr>
+        <tr class="sub-row sub-appymindo" style="display:none;">
+          <td class="logo-cell"><div class="logo-ph" style="background:#ede9fe;display:flex;">💡</div></td>
+          <td><div class="proj-name sub-name">↳ Coaches</div></td>
+          <td><div class="proj-desc">KI-Plattform für Coaches. Terminbuchung, Klientenverwaltung, Rechnungsstellung.</div></td>
+          <td><a class="link-item" href="https://www.appymindo.de/coaches" target="_blank">🔗 www.appymindo.de/coaches</a></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><span class="no-entry">—</span></td><td><span class="last-edit">24.06.2026 09:30</span></td>
         </tr>
 
         <!-- ── B2C APPS ── -->
