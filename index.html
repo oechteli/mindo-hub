@@ -329,6 +329,31 @@ details.todo-box ul {
   min-width: 200px;
 }
 
+/* Quote */
+.quote-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: linear-gradient(135deg, #7c3aed11 0%, #2563eb0d 100%);
+  border: 1px solid #7c3aed22;
+  border-left: 4px solid var(--purple);
+  border-radius: 12px;
+  padding: 18px 24px;
+  margin-bottom: 28px;
+}
+.quote-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+  font-style: italic;
+}
+.quote-author {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 /* Updated */
 .updated-line {
   text-align: right;
@@ -365,25 +390,51 @@ details.todo-box ul {
   <h1 class="page-title">Projektübersicht</h1>
   <p class="page-sub">Alle aktiven und geplanten Projekte — mit Links zu Webseite, Roadmap, GitHub und Obsidian.</p>
 
-  <!-- Stats -->
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num">11</div>
-      <div class="stat-label">Projekte gesamt</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Live / Aktiv</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-label">In Aufbau</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Geplant</div>
-    </div>
-  </div>
+  <!-- Tages-Spruch -->
+  <div class="quote-box" id="quoteBox"></div>
+  <script>
+  (function(){
+    const quotes = [
+      { text: "Der einzige Weg, großartige Arbeit zu leisten, ist zu lieben, was man tut.", author: "Steve Jobs" },
+      { text: "Erfolg ist die Summe kleiner Anstrengungen, die Tag für Tag wiederholt werden.", author: "Robert Collier" },
+      { text: "Dein Verstand ist alles. Was du denkst, das wirst du.", author: "Buddha" },
+      { text: "Wer aufhört, besser zu werden, hat aufgehört, gut zu sein.", author: "Philip Rosenthal" },
+      { text: "Träume nicht dein Leben, lebe deinen Traum.", author: "Mark Twain" },
+      { text: "Der Unterschied zwischen Gewinnern und Verlierern ist, dass Gewinner handeln.", author: "Tony Robbins" },
+      { text: "Gelegenheiten werden selten mit einem Schild versehen — man muss sie erkennen.", author: "Herbert Kelleher" },
+      { text: "Wenn du eine gute Idee hast, starte. Perfekt ist der Feind von fertig.", author: "Reid Hoffman" },
+      { text: "Unternehmer sein bedeutet, fünf Jahre so zu leben, wie die meisten nicht wollen, um dann so zu leben, wie die meisten nicht können.", author: "Unbekannt" },
+      { text: "Disziplin ist die Brücke zwischen Zielen und Leistung.", author: "Jim Rohn" },
+      { text: "Jeder Experte war einmal ein Anfänger.", author: "Helen Hayes" },
+      { text: "Erfolg ist kein Zufall. Er ist harte Arbeit, Ausdauer, Lernen, Opfer und vor allem Liebe zu dem, was du tust.", author: "Pelé" },
+      { text: "Warte nicht auf den perfekten Moment. Nimm den Moment und mach ihn perfekt.", author: "Zoey Sayward" },
+      { text: "Das Risiko des Scheiterns ist immer kleiner als das Risiko, es nie versucht zu haben.", author: "Paulo Coelho" },
+      { text: "Ideen sind leicht. Umsetzung ist alles.", author: "John Doerr" },
+      { text: "Du musst bereit sein, das zu riskieren, was du bist, für das, was du werden könntest.", author: "Oprah Winfrey" },
+      { text: "Bau etwas, das du selbst benutzen würdest.", author: "Paul Graham" },
+      { text: "Tue jeden Tag etwas, wovor du Angst hast.", author: "Eleanor Roosevelt" },
+      { text: "Wer immer tut, was er schon kann, bleibt immer das, was er schon ist.", author: "Henry Ford" },
+      { text: "Starte klein, denke groß, wachse schnell.", author: "Michael Dell" },
+      { text: "Ein Unternehmen ist eine Idee plus Mut plus Ausdauer.", author: "Anita Roddick" },
+      { text: "Die beste Zeit, einen Baum zu pflanzen, war vor zwanzig Jahren. Die zweitbeste Zeit ist jetzt.", author: "Chinesisches Sprichwort" },
+      { text: "Fortschritt ist nicht möglich ohne Veränderung.", author: "George Bernard Shaw" },
+      { text: "Vision ohne Ausführung ist nur eine Halluzination.", author: "Thomas Edison" },
+      { text: "Diejenigen, die verrückt genug sind zu glauben, sie können die Welt verändern, sind diejenigen, die es tun.", author: "Steve Jobs" },
+      { text: "Preis ist, was du zahlst. Wert ist, was du bekommst.", author: "Warren Buffett" },
+      { text: "Investiere in dein Wissen — das ist die beste Rendite.", author: "Benjamin Franklin" },
+      { text: "Wer aufhört zu lernen, ist alt — egal ob mit zwanzig oder achtzig.", author: "Henry Ford" },
+      { text: "Die meisten Menschen überschätzen, was sie in einem Jahr erreichen, und unterschätzen, was sie in zehn Jahren erreichen.", author: "Bill Gates" },
+      { text: "Nicht die Stärksten überleben, sondern die Anpassungsfähigsten.", author: "Charles Darwin" },
+      { text: "Mach aus deinem Hobby dein Einkommen, dann musst du nie wieder arbeiten.", author: "Konfuzius" },
+    ];
+    const d = new Date();
+    const dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+    const q = quotes[dayOfYear % quotes.length];
+    document.getElementById("quoteBox").innerHTML =
+      '<span class="quote-text">„' + q.text + '“</span>' +
+      '<span class="quote-author">— ' + q.author + '</span>';
+  })();
+  </script>
 
   <!-- Tabelle -->
   <div class="table-wrap">
