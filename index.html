@@ -367,6 +367,8 @@ details.todo-box ul {
 .sub-row td { border-left: 3px solid var(--purple-light); }
 .sub-row td:first-child { border-left: none; }
 .sub-name { font-weight: 500; color: var(--muted); padding-left: 6px; }
+.expand-btn { display:inline-block; background:#ede9fe; color:#7c3aed; font-size:.78rem; font-weight:700; padding:3px 10px; border-radius:999px; cursor:pointer; margin-left:8px; user-select:none; white-space:nowrap; border:none; vertical-align:middle; }
+.expand-btn:hover { background:#ddd6fe; }
 
 /* Category header rows */
 .cat-row td {
@@ -441,6 +443,15 @@ details.todo-box ul {
       '<span class="quote-author">— ' + q.author + '</span>';
   })();
   </script>
+  <script>
+  function toggleSub(cls, btn) {
+    var rows = document.querySelectorAll('.sub-' + cls);
+    if (!rows.length) return;
+    var show = rows[0].style.display !== 'table-row';
+    rows.forEach(function(r) { r.style.display = show ? 'table-row' : 'none'; });
+    btn.textContent = show ? '▾ ausblenden' : '▸ ' + (btn.dataset.label || 'Unterprojekte');
+  }
+  </script>
 
   <!-- Tabelle -->
   <div class="table-wrap">
@@ -469,7 +480,7 @@ details.todo-box ul {
             <div class="logo-ph" style="background:#ede9fe;">🏗️</div>
             <a class="logo-dl" href="logos/appymindo.png" download>⬇ Download</a>
           </td>
-          <td><div class="proj-name" style="cursor:pointer;" onclick="document.querySelectorAll('.sub-appymindo').forEach(function(r){r.style.display=r.style.display==='table-row'?'none':'table-row';});this.querySelector('.expand-arrow').textContent=document.querySelector('.sub-appymindo').style.display==='table-row'?'▾':'▸'"><span class="expand-arrow" style="font-size:0.7rem;color:var(--muted);margin-right:3px;">▸</span>Appymindo</div></td>
+          <td><div class="proj-name">Appymindo <button class="expand-btn" data-label="7 Branchen" onclick="toggleSub('appymindo',this)">▸ 7 Branchen</button></div></td>
           <td><div class="proj-desc">B2B KI-SaaS-Plattform (Done-for-you) für KMU & Sprachschulen. Bäcker-Pilot. Backend auf Server S1.</div></td>
           <td>
             <div class="link-group">
@@ -549,7 +560,7 @@ details.todo-box ul {
             <div class="logo-ph" style="background:#ede9fe;">⚡</div>
             <a class="logo-dl" href="logos/simplymindo.png" download>⬇ Download</a>
           </td>
-          <td><div class="proj-name" style="cursor:pointer;" onclick="document.getElementById('sub-simplymindo').style.display=document.getElementById('sub-simplymindo').style.display==='table-row'?'none':'table-row';this.querySelector('.expand-arrow').textContent=document.getElementById('sub-simplymindo').style.display==='table-row'?'▾':'▸'"><span class="expand-arrow" style="font-size:0.7rem;color:var(--muted);margin-right:3px;">▸</span>Simplymindo</div></td>
+          <td><div class="proj-name">Simplymindo <button class="expand-btn" data-label="8 Kategorien" onclick="toggleSub('simplymindo',this)">▸ 8 Kategorien</button></div></td>
           <td><div class="proj-desc">KI-Mini-App-Marktplatz für Privatpersonen. 27+ Apps. 3 Pläne ab 1,99 €. Erste App: Aufgaben-Planer.</div></td>
           <td>
             <div class="link-group">
@@ -576,8 +587,8 @@ details.todo-box ul {
         <tr class="sub-row sub-simplymindo" style="display:none;">
           <td class="logo-cell"><div class="logo-ph" style="background:#dbeafe;display:flex;">💼</div></td>
           <td><div class="proj-name sub-name">↳ Arbeit & Produktivität</div></td>
-          <td><div class="proj-desc">5 Apps: Meeting-Zusammenfasser, E-Mail-Antworter, Angebots-Generator, Rechnungs-Scanner, Bewerbungsschreiben-Assistent.</div></td>
-          <td><div class="link-group"><a class="link-item" href="https://www.simplymindo.de/meeting" target="_blank">🔗 /meeting</a><a class="link-item" href="https://www.simplymindo.de/angebot" target="_blank">🔗 /angebot</a></div></td>
+          <td><div class="proj-desc">5 Apps + Aufgaben-Planer ✅ (live!): Meeting-Zusammenfasser, E-Mail-Antworter, Angebots-Generator, Rechnungs-Scanner, Bewerbungsschreiben-Assistent.</div></td>
+          <td><div class="link-group"><a class="link-item" href="https://simplymindo-apps.pages.dev/aufgabenplaner" target="_blank">🔗 /aufgabenplaner ✅</a><a class="link-item" href="https://simplymindo-apps.pages.dev" target="_blank">🔗 Alle Live-Apps</a></div></td>
           <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
           <td><details class="todo-box"><summary>▸ 5 geplant</summary><ul><li>Meeting-Zusammenfasser</li><li>E-Mail-Antworter</li><li>Angebots-Generator</li><li>Rechnungs-Scanner</li><li>Bewerbungsschreiben-Assistent</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
@@ -621,8 +632,8 @@ details.todo-box ul {
         <tr class="sub-row sub-simplymindo" style="display:none;">
           <td class="logo-cell"><div class="logo-ph" style="background:#e0f2fe;display:flex;">🌍</div></td>
           <td><div class="proj-name sub-name">↳ Reise & Auswanderung</div></td>
-          <td><div class="proj-desc">4 Apps: Auswanderer-Assistent ✅ (live!), Urlaub am Wasser, Familienurlaub-Finder, Nordsee-Suche.</div></td>
-          <td><div class="link-group"><a class="link-item" href="https://auswanderer-app.pages.dev" target="_blank">🔗 auswanderer-app.pages.dev</a><a class="link-item" href="https://www.simplymindo.de/auswandern" target="_blank">🔗 /auswandern</a></div></td>
+          <td><div class="proj-desc">4 Live-Apps: Auswanderer-Assistent ✅, Nordsee-Suche ✅, Familienurlaub-Finder ✅, Urlaub am Wasser ✅.</div></td>
+          <td><div class="link-group"><a class="link-item" href="https://simplymindo-apps.pages.dev/nordsee-suche" target="_blank">🔗 /nordsee-suche ✅</a><a class="link-item" href="https://simplymindo-apps.pages.dev/familienurlaub-suche" target="_blank">🔗 /familienurlaub-suche ✅</a><a class="link-item" href="https://auswanderer-app.pages.dev" target="_blank">🔗 auswanderer-app.pages.dev ✅</a></div></td>
           <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
           <td><a class="link-item" href="https://github.com/oechteli/auswanderer-app" target="_blank">⚙ GitHub</a></td>
           <td><span class="no-entry">—</span></td>
@@ -632,17 +643,22 @@ details.todo-box ul {
         <tr class="sub-row sub-simplymindo" style="display:none;">
           <td class="logo-cell"><div class="logo-ph" style="background:#fef9c3;display:flex;">🎰</div></td>
           <td><div class="proj-name sub-name">↳ Community & Specials</div></td>
-          <td><div class="proj-desc">3 Specials: Gewinnspiel-Radar (wöchentlich), Affiliate-Radar (DACH-Marktanalyse), Lebensrichtung (KI-Lebenskompass).</div></td>
-          <td><div class="link-group"><a class="link-item" href="https://www.simplymindo.de/gewinnspiele" target="_blank">🔗 /gewinnspiele</a><a class="link-item" href="https://www.simplymindo.de/leben" target="_blank">🔗 /leben</a></div></td>
-          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
-          <td><details class="todo-box"><summary>▸ Todos</summary><ul><li>Gewinnspiel-Radar unter simplymindo.de einbinden</li><li>Affiliate-Radar unter simplymindo.de einbinden</li><li>Lebensrichtung-App konzipieren &amp; bauen</li></ul></details></td>
+          <td><div class="proj-desc">3 Live-Apps: Gewinnspiel-Radar (wöchentlich), Affiliate-Radar (DACH-Marktanalyse), Lebensrichtung (KI-Kompass).</div></td>
+          <td><div class="link-group"><a class="link-item" href="https://simplymindo-apps.pages.dev/gewinnspiel-radar" target="_blank">🔗 /gewinnspiel-radar ✅</a><a class="link-item" href="https://simplymindo-apps.pages.dev/affiliate-radar" target="_blank">🔗 /affiliate-radar ✅</a><a class="link-item" href="https://simplymindo-apps.pages.dev/leben" target="_blank">🔗 /leben 🚧</a></div></td>
+          <td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td><td><span class="no-entry">—</span></td>
+          <td><a class="obs-link" href="obsidian://open?vault=Appiverse-OS-NEU&file=02%20Projekte%2FGewinnspiel-Radar">📓 Gewinnspiel-Radar.md</a></td>
+          <td><details class="todo-box"><summary>▸ Todos</summary><ul><li>Lebensrichtung-App aufbauen</li><li>simplymindo.de auf simplymindo-apps zeigen</li></ul></details></td>
           <td><span class="last-edit">24.06.2026</span></td>
         </tr>
 
         <!-- ── YOUTUBE / FUNNEL ── -->
         <tr class="cat-row"><td colspan="10">YouTube & Funnel</td></tr>
         <tr>
-          <td class="logo-cell"><div class="logo-ph" style="background:#fef3c7;display:flex;">💛</div></td>
+          <td class="logo-cell">
+            <img src="logos/reichtraum.jpg" alt="Reichtraum" class="proj-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="logo-ph" style="background:#fef3c7;display:none;">💛</div>
+            <a class="logo-dl" href="logos/reichtraum.jpg" download>⬇ Download</a>
+          </td>
           <td><div class="proj-name">Reichtraum</div></td>
           <td><div class="proj-desc">YouTube-Kanal + Community: Reich UND glücklich werden. Monika & Peter mit Gesicht. 4 Säulen: Finanzen, Mindset, Beziehungen, Freiheit.</div></td>
           <td><a class="link-item" href="https://www.reichtraum.de" target="_blank">🔗 www.reichtraum.de</a></td>
@@ -734,7 +750,11 @@ details.todo-box ul {
         <!-- ── SERVER-PROJEKTE ── -->
         <tr class="cat-row"><td colspan="10">Server-Projekte (echte Domains)</td></tr>
         <tr>
-          <td class="logo-cell"><div class="logo-ph" style="background:#dbeafe;display:flex;">🧭</div></td>
+          <td class="logo-cell">
+            <img src="logos/lebensrichtung.png" alt="Lebensrichtung" class="proj-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="logo-ph" style="background:#dbeafe;">🧭</div>
+            <a class="logo-dl" href="logos/lebensrichtung.png" download>⬇ Download</a>
+          </td>
           <td><div class="proj-name">Lebensrichtung</div></td>
           <td><div class="proj-desc">KI-Lebenskompass: Werte klären, Ziele setzen, 3-Monats-Plan. Teil von Simplymindo + eigenständig. Synergien mit Reichtraum.</div></td>
           <td><div class="link-group"><a class="link-item" href="https://www.lebensrichtung.de" target="_blank">🔗 lebensrichtung.de</a></div></td>
